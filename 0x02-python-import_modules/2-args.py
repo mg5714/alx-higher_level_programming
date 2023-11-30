@@ -7,5 +7,5 @@ if __name__ == "__main__":
         print("Number of argument(s): 0.")
     else:
         print("Number of argument(s): {}".format(count))
-    for i in range(1, len(sys.argv)):
-        print("{}: {}".format(i, sys.argv[i]))
+    for i in range(count):
+        print("{}: {}".format(i + 1, sys.argv[i + 1]))
