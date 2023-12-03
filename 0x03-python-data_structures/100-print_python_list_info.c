@@ -1,6 +1,11 @@
-#include <Python.h>
 #include <stdio.h>
-
+#include <Python.h>
+/**
+ * print_python_list_info - info for Python list
+ * @p: object
+ *
+ * Return: 0
+ */
 void print_python_list_info(PyObject *p)
 {
 	Py_ssize_t size, allocated, i;
