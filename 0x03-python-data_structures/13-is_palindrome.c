@@ -30,7 +30,7 @@ int palind(listint_t **start, listint_t *end)
  */
 int is_palindrome(listint_t **head)
 {
-  if (*head == NULL || *head == NULL) {
+  if (head == NULL || *head == NULL) {
     return 1;
   }
 
