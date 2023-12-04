@@ -11,15 +11,15 @@
 int palind(listint_t **start, listint_t *end)
 {
   if (end == NULL) {
-    return 1;
+    return (1);
   }
 
   if (palind(start, end->next) && (*start)->n == end->n) {
     *start = (*start)->next;
-    return 1;
+    return (1);
   }
 
-  return 0;
+  return (0);
 }
 
 /**
@@ -31,9 +31,9 @@ int palind(listint_t **start, listint_t *end)
 int is_palindrome(listint_t **head)
 {
   if (head == NULL || *head == NULL) {
-    return 1;
+    return (1);
   }
 
-  return palind(head, *head);
+  return (palind(head, *head));
 }
 
