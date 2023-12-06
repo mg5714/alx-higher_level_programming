@@ -3,7 +3,6 @@
 def best_score(a_dictionary):
     if not a_dictionary:
         return None
-    
     best_k = None
     best_v = None
 
