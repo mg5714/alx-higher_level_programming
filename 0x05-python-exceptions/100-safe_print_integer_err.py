@@ -2,7 +2,6 @@
 import sys
 
 def safe_print_integer_err(value):
-    int_value = True
     try:
         print("{:d}".format(value))
         return True
