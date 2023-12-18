@@ -2,9 +2,9 @@
 import sys
 
 def safe_print_integer_err(value):
-    int_value = int(value)
+    int_value = True
     try:
-        print("{:d}".format(int_value))
+        print("{:d}".format(value))
         return True
     except Exception as err:
         print("Exception:", err, file=sys.stderr)
