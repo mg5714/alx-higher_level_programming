@@ -2,8 +2,8 @@
 import sys
 
 def safe_print_integer_err(value):
+    int_value = int(value)
     try:
-        int_value = int(value)
         print("{:d}".format(int_value))
         return True
     except Exception as err:
