@@ -13,8 +13,8 @@ class Square:
             size: side length of square
             position: position of the square as a tuple of 2 positive                       integers
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
