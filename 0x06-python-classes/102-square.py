@@ -52,10 +52,18 @@ class Square:
         return self.area() > other.area()
 
     def __gteq__(self, other):
+        """Rich comparison operator to compare if square area is greater
+        than or equal to another.
+
+        Args:
+            other (Square): square to compare size to.
+
+        Returns: True or false
+        """
         return self.area() >= other.area()
 
     def __lt__(self, other):
         return self.area() < other.area()
 
     def __lteq__(self, other):
-        return self.area() <= other.area()                     
+        return self.area() <= other.area()
