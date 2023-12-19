@@ -45,13 +45,13 @@ class Square:
     def __eq__(self, other):
         return self.area() == other.area()
 
-    def __neq__(self, other):
+    def __ne__(self, other):
         return self.area() != other.area()
 
     def __gt__(self, other):
         return self.area() > other.area()
 
-    def __gteq__(self, other):
+    def __ge__(self, other):
         """Rich comparison operator to compare if square area is greater
         than or equal to another.
 
@@ -65,5 +65,5 @@ class Square:
     def __lt__(self, other):
         return self.area() < other.area()
 
-    def __lteq__(self, other):
+    def __le__(self, other):
         return self.area() <= other.area()
