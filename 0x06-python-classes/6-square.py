@@ -11,7 +11,7 @@ class Square:
 
         Args:
             size: side length of square
-            position: position of the square as a tuple of 2 positive                       integers
+            position: position of the square as a tuple of 2 positive integers.
         """
         self.size = size
         self.position = position
