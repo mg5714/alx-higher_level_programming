@@ -71,4 +71,4 @@ class Square:
         else:
             space = " " * self.__position[0]
             for i in range(self.__size):
-                print(f"{space}#{'#' * self.__size}")
+                print(f"{space} + {'#' * self.__size}")
