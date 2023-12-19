@@ -3,6 +3,7 @@
 
 import math
 
+
 class MagicClass:
     """ represent circale """
 
@@ -18,7 +19,7 @@ class MagicClass:
         self.__radius = radius
 
     def area(self):
-        """ 
+        """
         return the area of magic circle
         """
         return (self.__radius ** 2 * math.pi)
