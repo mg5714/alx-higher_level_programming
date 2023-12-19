@@ -13,8 +13,8 @@ class Square:
             size: side length of square
             position: position of the square as a tuple of 2 positive integers.
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -69,6 +69,6 @@ class Square:
         if self.__size == 0:
             print()
         else:
-            space = " " * self.__position[1]
+            space = " " * self.__position[0]
             for i in range(self.__size):
                 print(f"{space}#{'#' * self.__size}")
