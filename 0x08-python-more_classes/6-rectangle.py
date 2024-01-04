@@ -85,11 +85,10 @@ class Rectangle:
             return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
-        """Return a representation of the rectangle for recreation using eval()
+        """Return a representation of the rectangle for using eval()
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
         """Print a message when an instance of Rectangle is deleted."""
-        type(self).number_of_instances -= 1
         print("Bye rectangle...")
