@@ -83,3 +83,5 @@ class Rectangle:
             return ""
         else:
             return ("#" * self.width + "\n") * self.height
+
+    __repr__ = __str__
