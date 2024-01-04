@@ -86,7 +86,7 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return ""
         else:
-            return "\n".join("#" * self.__width for _ in range(self.__height))
+            return "\n".join("#" * self.__width for i in range(self.__height))
 
     def __repr__(self):
         """Return a representation of the rectangle for recreation using eval()
