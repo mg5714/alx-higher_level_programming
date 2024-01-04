@@ -20,9 +20,9 @@ class Rectangle:
             ValueError: TypeError: If width or height less than 0
         """
 
-        Rectangle.number_of_instances += 1
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -72,18 +72,18 @@ class Rectangle:
 
     def area(self):
         """Calculates and returns the area of the rectangle."""
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
         """Calculates and returns the perimeter of the rectangle."""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return 0
         else:
-            return 2 * (self.__width + self.__height)
+            return 2 * (self.width + self.height)
 
     def __str__(self):
         """Returns a string representation of the rectangle."""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return ""
         else:
             return "\n".join("#" * self.__width for _ in range(self.__height))
@@ -100,15 +100,7 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Return the rectangle with the larger or equal area
-
-        Args:
-            rect_1: The first Rectangle.
-            rect_2: The second Rectangle.
-
-        Raises:
-            TypeError: If either of rect_1 or rect_2 is not a Rectangle.
-        """
+        """Return the rectangle with the larger or equal area."""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
