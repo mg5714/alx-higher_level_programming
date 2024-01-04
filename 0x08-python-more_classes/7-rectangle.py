@@ -87,7 +87,7 @@ class Rectangle:
             return ""
         else:
             symbol_line = str(self.print_symbol) * self.__width
-            return "\n".join(symbol_line for _ in range(self.__height))
+            return "\n".join(symbol_line for i in range(self.__height))
 
     def __repr__(self):
         """Return a representation of the rectangle for recreation using eval()
