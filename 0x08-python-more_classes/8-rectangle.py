@@ -5,6 +5,9 @@
 class Rectangle:
     """Represents a rectangle with width and height."""
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """ Initializes the rectangle
 
@@ -19,6 +22,7 @@ class Rectangle:
 
         self.height = height
         self.width = width
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -88,6 +92,11 @@ class Rectangle:
         """Return a representation of the rectangle for recreation using eval()
         """
         return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when an instance of Rectangle is deleted."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
