@@ -20,9 +20,9 @@ class Rectangle:
             ValueError: TypeError: If width or height less than 0
         """
 
+        Rectangle.number_of_instances += 1
         self.height = height
         self.width = width
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -72,18 +72,18 @@ class Rectangle:
 
     def area(self):
         """Calculates and returns the area of the rectangle."""
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """Calculates and returns the perimeter of the rectangle."""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
         else:
-            return 2 * (self.width + self.height)
+            return 2 * (self.__width + self.__height)
 
     def __str__(self):
         """Returns a string representation of the rectangle."""
-        if self.width == 0 or self.height == 0:
+        if self.__width == 0 or self.__height == 0:
             return ""
         else:
             return "\n".join("#" * self.__width for _ in range(self.__height))
