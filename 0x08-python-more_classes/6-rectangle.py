@@ -88,7 +88,8 @@ class Rectangle:
         """Return a representation of the rectangle for recreation using eval()
         """
         return f"Rectangle({self.__width}, {self.__height})"
+
     def __del__(self):
-        """Prints a message when the rectangle is deleted."""
+        """Print a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
