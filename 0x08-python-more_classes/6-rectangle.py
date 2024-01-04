@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ define class rectangle"""
 
-number_of_instances = 0
 
 class Rectangle:
     """Represents a rectangle with width and height."""
@@ -20,7 +19,6 @@ class Rectangle:
 
         self.height = height
         self.width = width
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -87,7 +85,7 @@ class Rectangle:
             return "\n".join("#" * self.__width for _ in range(self.__height))
 
     def __repr__(self):
-        """Return a representation of the rectangle for using eval()
+        """Return a representation of the rectangle for recreation using eval()
         """
         return f"Rectangle({self.__width}, {self.__height})"
 
