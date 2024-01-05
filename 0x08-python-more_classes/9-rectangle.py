@@ -92,8 +92,8 @@ class Rectangle:
     def __repr__(self):
         """Return a representation of the rectangle for recreation using eval()
         """
-        return f"Rectangle({self.__width}, {self.__height})"
-
+        return "{:s}({:d}, {:d})".format((type(self).__name__),
+                self.__width, self.__height)
     def __del__(self):
         """Print a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
@@ -119,7 +119,4 @@ class Rectangle:
         Args:
             size: The width and height of the new Rectangle.
         """
-
-        if not isinstance(size, int) or size < 0:
-            raise ValueError("size must be a non-negative integer")
         return cls(size, size)
