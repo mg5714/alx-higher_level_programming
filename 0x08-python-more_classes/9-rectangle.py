@@ -92,7 +92,8 @@ class Rectangle:
     def __repr__(self):
         """Return a representation of the rectangle for recreation using eval()
         """
-        return "{:d}, {:d}".format(self.__width, self.__height)
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+
     def __del__(self):
         """Print a message when an instance of Rectangle is deleted."""
         print("Bye rectangle...")
