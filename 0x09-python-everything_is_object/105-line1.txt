@@ -1,0 +1,4 @@
+262 int objects have been created and are still in memory.
+
+why:
+Python's Integer Caching.
