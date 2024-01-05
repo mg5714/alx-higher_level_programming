@@ -119,4 +119,7 @@ class Rectangle:
         Args:
             size: The width and height of the new Rectangle.
         """
+
+        if not isinstance(size, int) or size < 0:
+            raise ValueError("size must be a non-negative integer")
         return cls(size, size)
