@@ -2,7 +2,7 @@
 """define module"""
 
 
-def is_kind_of_class(obj, a_class):
+def inherits_from(obj, a_class):
     """
     Returns True if the object is an instance.
 
@@ -13,4 +13,5 @@ def is_kind_of_class(obj, a_class):
     Returns:
         bool: True if obj is an instance of a_class, False otherwise.
     """
-    return isinstance(obj, a_class)
+
+    return isinstance(obj, type) and issubclass(obj, a_class)
