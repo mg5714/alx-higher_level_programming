@@ -16,8 +16,9 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
 
+
 class Rectangle(BaseGeometry):
-    """Class Rectangle inherits from BaseGeometry."""
+    """Class Rectangle inherits from BaseGeometry"""
 
     def __init__(self, width, height):
         """Initialize the Rectangle instance with width and height."""
@@ -35,5 +36,5 @@ class Rectangle(BaseGeometry):
         return f"[Rectangle] {self.__width}/{self.__height}"
 
     def __repr__(self):
-        """Return a string representation of the rectangle for recreation using eval()."""
+        """Return a string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"

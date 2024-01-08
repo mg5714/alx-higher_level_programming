@@ -35,8 +35,9 @@ class Rectangle(BaseGeometry):
         return f"[Rectangle] {self.__width}/{self.__height}"
 
     def __repr__(self):
-        """Return a string representation of the rectangle for recreation using eval()."""
+        """Return a string representation of the rectangle using eval()"""
         return f"Rectangle({self.__width}, {self.__height})"
+
 
 class Square(Rectangle):
     """Class Square inherits from Rectangle."""
@@ -51,5 +52,5 @@ class Square(Rectangle):
         return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
 
     def __repr__(self):
-        """Return a string representation of the square for recreation using eval()."""
+        """Return a string representation of square using eval()."""
         return f"Square({self._Rectangle__width})"
