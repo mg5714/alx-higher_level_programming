@@ -2,6 +2,7 @@
 """define module"""
 
 
+
 class BaseGeometry:
     """BaseGeometry class"""
     def area(self):
