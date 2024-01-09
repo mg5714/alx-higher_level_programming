@@ -3,7 +3,7 @@
 
 from sys import stdin
 
-total_f_size = 0
+
 status_counts = {
         200: 0,
         301: 0,
