@@ -27,7 +27,7 @@ try:
 
             lines += 1
 
-            if lines % 10 = 0:
+            if lines % 10 == 0:
                 print_statistics()
         except ValueError:
             pass
