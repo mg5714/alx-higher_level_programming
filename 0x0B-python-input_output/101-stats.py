@@ -18,11 +18,12 @@ lines = 0
 
 try:
     for line in stdin:
-            ip, _, date, _, status_code, file_size = line.split()
-            file_size = int(file_size)
-
-            total_f_size += file_size
-            status_counts[int(status_code)] += 1
+            file_split = line.split()
+            if len(file_split) >= 2:
+                status_code = file_split[-2]
+                total_f_size += int(file_split[-1])
+                if status_code in status_counts:
+                    status_counts[(status_code)] += 1
 
             lines += 1
 
