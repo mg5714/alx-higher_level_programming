@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 """define module"""
 
-
-import sys
+from sys import stdin
 
 total_f_size = 0
 status_counts = {
@@ -18,7 +17,7 @@ status_counts = {
 lines = 0
 
 try:
-    for line in sys.stdin:
+    for line in stdin:
         try:
             ip, _, date, _, status_code, file_size = line.split()
             file_size = int(file_size)
