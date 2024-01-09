@@ -18,7 +18,6 @@ lines = 0
 
 try:
     for line in stdin:
-        try:
             ip, _, date, _, status_code, file_size = line.split()
             file_size = int(file_size)
 
@@ -29,12 +28,10 @@ try:
 
             if lines % 10 == 0:
                 print_statistics()
-        except ValueError:
-            pass
-except KeyboardInterrupt:
-    pass
+    print_statistics()
 
-print_statistics()
+except KeyboardInterrupt as e:
+    print_statistics()
 
 
 def print_statistics():
