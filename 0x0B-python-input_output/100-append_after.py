@@ -3,6 +3,8 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """append new string, search string in file"""
+
     try:
         lines = []
         with open(filename, 'r', encoding='utf-8') as file:
