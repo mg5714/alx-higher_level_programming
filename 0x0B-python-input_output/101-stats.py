@@ -37,6 +37,7 @@ except KeyboardInterrupt:
 
 print_statistics()
 
+
 def print_statistics():
     print("Total file size:", total_f_size)
     for status_code in sorted(status_counts):
