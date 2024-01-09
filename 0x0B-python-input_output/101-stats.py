@@ -39,8 +39,7 @@ print_statistics()
 
 
 def print_statistics():
-    print("Total file size:", total_f_size)
-    for status_code in sorted(status_counts):
-        count = status_counts[status_code]
-        if count > 0:
-            print(f"{status_code}: {count}")
+    print(f"Total file size: {total_f_size}")
+    for k, v in sorted(status_counts):
+        if v > 0:
+            print("{:s}: {:d}".format(k, v))
