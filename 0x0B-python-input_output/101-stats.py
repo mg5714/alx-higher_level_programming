@@ -22,7 +22,7 @@ total_f_size = 0
 def print_statistics():
     """"to print"""
     print(f"Total file size: {total_f_size}")
-    for k, v in sorted(status_counts):
+    for k, v in sorted(status_counts.items()):
         if v > 0:
             print("{:s}: {:d}".format(k, v))
 
