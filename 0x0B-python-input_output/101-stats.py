@@ -14,7 +14,16 @@ status_counts = {
         405: 0,
         500: 0,
         }
+
 lines = 0
+total_f_size = 0
+
+
+def print_statistics():
+    print(f"Total file size: {total_f_size}")
+    for k, v in sorted(status_counts):
+        if v > 0:
+            print("{:s}: {:d}".format(k, v))
 
 try:
     for line in stdin:
@@ -33,10 +42,3 @@ try:
 
 except KeyboardInterrupt as e:
     print_statistics()
-
-
-def print_statistics():
-    print(f"Total file size: {total_f_size}")
-    for k, v in sorted(status_counts):
-        if v > 0:
-            print("{:s}: {:d}".format(k, v))
