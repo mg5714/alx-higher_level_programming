@@ -23,8 +23,8 @@ def print_statistics():
     """"to print"""
     print(f"Total file size: {total_f_size}")
     for key, value in sorted(status_counts.items()):
-        if v > 0:
-            print("{:s}: {:d}".format(k, v))
+        if value > 0:
+            print("{:s}: {:d}".format(key, value))
 
 try:
     for line in stdin:
