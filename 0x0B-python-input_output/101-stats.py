@@ -20,6 +20,7 @@ total_f_size = 0
 
 
 def print_statistics():
+    """"to print"""
     print(f"Total file size: {total_f_size}")
     for k, v in sorted(status_counts):
         if v > 0:
