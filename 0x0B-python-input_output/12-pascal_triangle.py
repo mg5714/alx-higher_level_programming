@@ -3,15 +3,16 @@
 
 
 def pascal_triangle(n):
+    """ Pascal Triangle 1h"""
+    li = []
     if n <= 0:
-        return []
-
-    triangle = []
-    for i in range(n):
-        row = [1] * (i + 1)
-        if i >= 2:
-            for j in range(1, i):
-                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-        triangle.append(row)
-
-    return triangle
+        return li
+    for r in range(n):
+        for c in range(r + 1):
+            if c == 0:
+                li.append([1])
+            elif c == r:
+                li[r].append(1)
+            else:
+                li[r].append(li[r - 1][c] + li[r - 1][c - 1])
+    return li
