@@ -1,0 +1,39 @@
+Import the lazy_matrix_mul:
+>>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
+"""Tests for the matrix_mul function."""
+
+def test_basic_multiplication():
+    """Tests basic matrix multiplication."""
+    matrix_a = [[1, 2], [3, 4]]
+    matrix_b = [[5, 6], [7, 8]]
+    result = matrix_mul(matrix_a, matrix_b)
+    assert result == [[19, 22], [43, 50]]
+
+def test_multiplication_with_floats():
+    """Tests multiplication with matrices containing floats."""
+    matrix_a = [[1.5, 2.0], [3.5, 4.0]]
+    matrix_b = [[5.0, 6.5], [7.0, 8.5]]
+    result = matrix_mul(matrix_a, matrix_b)
+    assert result == [[26.75, 33.25], [53.25, 67.75]]
+
+def test_different_sized_matrices():
+    """Tests handling of matrices with different sizes."""
+    matrix_a = [[1, 2, 3]]
+    matrix_b = [[4, 5], [6, 7], [8, 9]]
+    with pytest.raises(ValueError, match="m_a and m_b can't be multiplied"):
+        matrix_mul(matrix_a, matrix_b)
+
+def test_non_numeric_elements():
+    """Tests handling of matrices with non-numeric elements."""
+    matrix_a = [[1, 2], ["a", 4]]
+    matrix_b = [[5, 6], [7, 8]]
+    with pytest.raises(TypeError, match="m_a must be a list of lists of integers/floats"):
+        matrix_mul(matrix_a, matrix_b)
+
+def test_empty_matrices():
+    """Tests handling of empty matrices."""
+	matrix_a = []
+	matrix_b = [[1, 2]]
+	with pytest.raises(ValueError, match="m_a can't be empty"):
+	matrix_mul(matrix_a, matrix_b)

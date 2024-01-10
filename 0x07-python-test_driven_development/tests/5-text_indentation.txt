@@ -1,0 +1,38 @@
+Import module:
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test cases for text_indentation function:
+
+Basic test with a single sentence:
+>>> text_indentation("This is a sample sentence.")
+This is a sample sentence.
+<BLANKLINE>
+
+Test with multiple sentences separated by:
+>>> text_indentation("Sentence one. Sentence two. Sentence three.")
+Sentence one.
+<BLANKLINE>
+Sentence two.
+<BLANKLINE>
+Sentence three.
+<BLANKLINE>
+
+Test with multiple sentences separated by ? and :
+>>> text_indentation("Question one? Question two: Question three?")
+Question one?
+<BLANKLINE>
+Question two:
+<BLANKLINE>
+Question three?
+<BLANKLINE>
+
+Test with different punctuation and spaces:
+>>> text_indentation("   Spaces before. Spaces after ?    Extra   : Spaces.")
+Spaces before.
+<BLANKLINE>
+Spaces after?
+<BLANKLINE>
+Extra:
+<BLANKLINE>
+Spaces.
+<BLANKLINE>

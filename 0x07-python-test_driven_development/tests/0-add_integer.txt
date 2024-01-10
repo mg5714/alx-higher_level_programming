@@ -1,0 +1,35 @@
+Import the function:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+
+# Testcase 1: Adding two integers
+>>> add_integer(3, 5)
+8
+
+# Testcase 2: Adding an integer and a float
+>>> add_integer(7, 3.5)
+10
+
+# Testcase 3: Adding two floats
+>>> add_integer(2.5, 2.5)
+4
+
+# Testcase 4: Adding with the default value for b
+>>> add_integer(10)
+108
+
+# Testcase 5: Invalid input (a must be an integer)
+>>> add_integer("string", 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Testcase 6: Invalid input (b must be an integer)
+>>> add_integer(10, "string")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+# Testcase 7: Adding two negative integers
+>>> add_integer(-5, -3)
+-8
