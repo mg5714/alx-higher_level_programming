@@ -3,45 +3,75 @@ Import module:
 
 Test print_square function:
 
-Test case for a square of size 1:
->>> print_square(1)
-#
+Test normal print 0:
+    >>> print_square(0)
 
-Test case to print 0:
->>> print_square(0)
+Test normal print 1:
+    >>> print_square(1)
+    #
 
-Test case for a square of size 3
->>> print_square(3)
-###
-###
-###
+Test normal print 2:
+    >>> print_square(2)
+    ##
+    ##
 
-Test case for a square of size 5:
->>> print_square(5)
-#####
-#####
-#####
-#####
-#####
+Test normal print 3:
+    >>> print_square(3)
+    ###
+    ###
+    ###
 
-Test cases for TypeError:
+Test normal print 10:
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
 
-size is not an integer:
->>> print_square("abc")
-Traceback (most recent call last):
+Test negative:
+    >>> print_square(-10)
+    Traceback (most recent call last):
     ...
-TypeError: size must be an integer
+    ValueError: size must be >= 0
 
-size is a float:
->>> print_square(3.5)
-Traceback (most recent call last):
+Test float:
+    >>> print_square(10.0)
+    Traceback (most recent call last):
     ...
-TypeError: size must be an integer
+    TypeError: size must be an integer
 
-Test cases for ValueError:
-
-size is less than 0:
->>> print_square(-2)
-Traceback (most recent call last):
+Test str:
+    >>> print_square("foo")
+    Traceback (most recent call last):
     ...
-ValueError: size must be >= 0
+    TypeError: size must be an integer
+
+Test none:
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test inf:
+    >>> print_square(float('inf'))
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Test nan:
+    >>> print_square(float('nan'))
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Missing one argument:
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
