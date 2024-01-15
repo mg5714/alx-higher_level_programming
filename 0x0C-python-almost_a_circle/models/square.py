@@ -2,18 +2,23 @@
 """Module for square class"""
 from models.rectangle import Rectangle
 
-
 class Square(Rectangle):
-    """Represents square shape"""
+    """Represents a square, inherits from Rectangle."""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initializes a new Square instance"""
+        """Initializes a new instance of Square.
+
+        Args:
+            size: The size of the square.
+            x: x-coordinate of the square's position.
+            y: y-coordinate of the square's position.
+            id: Identifier for the square.
+        """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Returns string fo square"""
-        return '[{}] ({}) {}/{} - {}'.\
-            format(type(self).__name__, self.id, self.x, self.y, self.width)
+        """Returns a string representation of the square."""
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
