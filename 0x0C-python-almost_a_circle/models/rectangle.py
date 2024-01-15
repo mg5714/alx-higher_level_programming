@@ -97,11 +97,31 @@ class Rectangle(Base):
 
     def display(self):
         """print str"""
-        rect_str = '\n' * self.y + \
-                (' ' * self.x + '#' * self.width + '\n') * self.height
-        print(rect_str, end='')
+    rect_str = '\n' * self.y + \
+               (' ' * self.x + '#' * self.width + '\n') * self.height
+    print(rect_str, end='')
 
     def __str__(self):
         """Returns a string representation of the rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".\
-                format(self.id, self.x, self.y, self.width, self.height)
+            format(self.id, self.x, self.y, self.width, self.height)
+
+    def updateed(self, id=None, width=None, height=None, x=None, y=None):
+        """update attributes"""
+        if id is not None:
+            self.id = id
+        if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        """Updates attributes of the rectangle."""
+        if args:
+            self.updateed(*args)
+        elif kwargs:
+            self.updateed(**kwargs)
