@@ -16,6 +16,11 @@ class Rectangle(Base):
             y: y-coordinate of rectangle's position.
             id: identifier for rectangle.
         """
+        self.validate_or_non("width", width)
+        self.validate_or_non("height", height)
+        self.validate_or_non("x", x)
+        self.validate_or_non("y", y)
+
         super().__init__(id)
         self.width = width
         self.height = height
