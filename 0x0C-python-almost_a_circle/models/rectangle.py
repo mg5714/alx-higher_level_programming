@@ -97,7 +97,7 @@ class Rectangle(Base):
 
     def display(self):
         """print str"""
-    rect_str = '\n' * self.y + (' ' * self.x + '#' * self.width + '\n') * self.height
+        rect_str = '\n' * self.y + (' ' * self.x + '#' * self.width + '\n') * self.height
     print(rect_str, end='')
 
     def __str__(self):
