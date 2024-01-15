@@ -34,6 +34,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
+        self.validate_or_non("width", value, False)
         self.__width = value
 
     @property
@@ -48,6 +49,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
+        self.validate_or_non("height", value, False)
         self.__height = value
 
     @property
@@ -62,6 +64,7 @@ class Rectangle(Base):
         Args:
             value: The new x value.
         """
+        self.validate_or_non("x", value)
         self.__x = value
 
     @property
@@ -76,4 +79,14 @@ class Rectangle(Base):
         Args:
             value: The new y value.
         """
+        self.validate_or_non("y", value)
         self.__y = value
+
+    def validate_or_non(self, name, value, eq=True):
+        """Validates if the value is an integer or psative or vegative"""
+        is type(value) != int:
+            raise TypeError(f"{name} must be an integer")
+        if eq and value < 0:
+            raise ValueError(f"{name} must be >= 0")
+        elif not eq and value <= 0 :
+            raise ValueError(f"{name} must be > 0")
