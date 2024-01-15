@@ -31,13 +31,10 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Saves list of instances to json """
-        f list_objs is None:
-            list_objs = []
-        filename = f"{cls.__name__}.json"
         data = [obj.to_dictionary() for obj in list_objs]
         json_string = cls.to_json_string(data)
 
-        with open(filename, "w", encoding="utf-8") as file:
+        with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as file:
             file.write(json_string)
 
     @staticmethod
