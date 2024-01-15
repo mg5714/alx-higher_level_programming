@@ -33,10 +33,9 @@ class Base:
         """Saves list of instances to json """
         if list_objs is not None:
             data = [obj.to_dictionary() for obj in list_objs]
-        json_string = cls.to_json_string(data)
 
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as file:
-            file.write(json_string)
+            file.write(cls.to_json_string(data))
 
     @staticmethod
     def from_json_string(json_string):
