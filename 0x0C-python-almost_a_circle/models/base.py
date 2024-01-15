@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module for Base class"""
-from json import dumps, loads
+import json
 import csv
 
 
@@ -26,7 +26,7 @@ class Base:
         """Returns JSON string representation oflist dictionaries"""
         if not list_dictionaries:
             return "[]"
-        return dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
