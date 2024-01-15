@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Module for Base class"""
 from json import dumps, loads
-
+import csv
 
 class Base:
     """Represents the base class for all other classes in this project."""
@@ -65,5 +65,30 @@ class Base:
                 json_string = file.read()
                 list_dicts = cls.from_json_string(json_string)
                 return [cls.create(**data) for data in list_dicts]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves list of instances to CSV file"""
+        filename = f"{cls.__name__}.csv"
+        headers = cls.csv_headers()
+        data = [obj.to_csv_row() for obj in list_objs]
+
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(headers)
+            writer.writerows(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Loads a list of instances from a CSV file"""
+        filename = f"{cls.__name__}.csv"
+        try:
+            with open(filename, "r") as file:
+                reader = csv.reader(file)
+                headers = next(reader)
+                data = [cls.create(**row) for row in reader]
+                return data
         except FileNotFoundError:
             return []
