@@ -39,7 +39,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
-        self.validate_or_non("width", value)
+        self.validate_or_non("width", value, eq=False)
         self.__width = value
 
     @property
@@ -54,7 +54,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
-        self.validate_or_non("height", value)
+        self.validate_or_non("height", value, eq=False)
         self.__height = value
 
     @property
