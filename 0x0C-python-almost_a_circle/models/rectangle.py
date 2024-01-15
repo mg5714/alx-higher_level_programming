@@ -34,7 +34,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
-        self.validate_or_non("width", value, eq=False)
+        self.validate_integer("width", value, False)
         self.__width = value
 
     @property
@@ -49,7 +49,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
-        self.validate_or_non("height", value, eq=False)
+        self.validate_integer("height", value, False)
         self.__height = value
 
     @property
@@ -64,7 +64,7 @@ class Rectangle(Base):
         Args:
             value: The new x value.
         """
-        self.validate_or_non("x", value)
+        self.validate_integer("x", value)
         self.__x = value
 
     @property
@@ -79,13 +79,14 @@ class Rectangle(Base):
         Args:
             value: The new y value.
         """
-        self.validate_or_non("y", value)
+        self.validate_integer("y", value)
         self.__y = value
 
-    def validate_or_non(self, attribute_name, value, eq=True):
-        if not isinstance(value, int):
-            raise TypeError(f"{attribute_name} must be an integer")
-        elif eq and value < 0:
-            raise ValueError(f"{attribute_name} must be >= 0")
+    def validate_integer(self, name, value, eq=True):
+        '''Method for validating the value.'''
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if eq and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
         elif not eq and value <= 0:
-            raise ValueError(f"{attribute_name} must be > 0")
+            raise ValueError("{} must be > 0".format(name))
