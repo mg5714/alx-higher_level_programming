@@ -22,10 +22,11 @@ class Rectangle(Base):
         self.validate_or_non("y", y)
 
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
+        self.id = id
 
     @property
     def width(self):
@@ -39,7 +40,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
-        self.validate_or_non("width", value)
+        self.validate_or_non("width", value, False)
         self.__width = value
 
     @property
@@ -54,7 +55,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
-        self.validate_or_non("height", value)
+        self.validate_or_non("height", value, False)
         self.__height = value
 
     @property
@@ -87,7 +88,7 @@ class Rectangle(Base):
         self.validate_or_non("y", value)
         self.__y = value
 
-    def validate_or_non(self, attribute_name, value):
+    def validate_or_non(self, attribute_name, value, eq=True):
         """Validates if the value is an integer or psative or vegative"""
         if value is not None:
             if not isinstance(value, int):
