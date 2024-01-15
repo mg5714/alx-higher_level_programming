@@ -3,6 +3,7 @@
 from json import dumps, loads
 import csv
 
+
 class Base:
     """Represents the base class for all other classes in this project."""
 
