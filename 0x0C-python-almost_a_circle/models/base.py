@@ -72,12 +72,10 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Saves list of instances to CSV file"""
         filename = f"{cls.__name__}.csv"
-        headers = cls.csv_headers()
         data = [obj.to_csv_row() for obj in list_objs]
 
         with open(filename, "w", newline="") as file:
             writer = csv.writer(file)
-            writer.writerow(headers)
             writer.writerows(data)
 
     @classmethod
@@ -87,7 +85,6 @@ class Base:
         try:
             with open(filename, "r") as file:
                 reader = csv.reader(file)
-                headers = next(reader)
                 data = [cls.create(**row) for row in reader]
                 return data
         except FileNotFoundError:
