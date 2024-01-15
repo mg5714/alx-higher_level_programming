@@ -82,11 +82,11 @@ class Rectangle(Base):
         self.validate_or_non("y", value)
         self.__y = value
 
-    def validate_or_non(self, name, value, eq=True):
+    def validate_or_non(self, attribute_name, value, eq=True):
         '''Method for validating the value.'''
         if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
+            raise TypeError(f"{attribute_name} must be an integer")
         if eq and value < 0:
-            raise ValueError("{} must be >= 0".format(name))
+            raise ValueError(f"{attribute_name} must be >= 0")
         elif not eq and value <= 0:
-            raise ValueError("{} must be > 0".format(name))
+            raise ValueError(f"{attribute_name} must be > 0")
