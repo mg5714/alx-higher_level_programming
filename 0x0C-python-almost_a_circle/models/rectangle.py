@@ -85,8 +85,8 @@ class Rectangle(Base):
     def validate_or_non(self, name, value, eq=True):
         """Validates if the value is an integer or psative or vegative"""
         is type(value) != int:
-            raise TypeError(f"{name} must be an integer")
+            raise TypeError("{} must be an integer".format(name))
         if eq and value < 0:
-            raise ValueError(f"{name} must be >= 0")
+            raise ValueError("{} must be >= 0".format(name))
         elif not eq and value <= 0 :
-            raise ValueError(f"{name} must be > 0")
+            raise ValueError("{} must be > 0".format(name))
