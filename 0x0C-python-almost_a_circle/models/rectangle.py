@@ -39,7 +39,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
-        self.validate_or_non("width", value, False)
+        self.validate_or_non("width", value)
         self.__width = value
 
     @property
@@ -54,7 +54,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
-        self.validate_or_non("height", value, False)
+        self.validate_or_non("height", value)
         self.__height = value
 
     @property
@@ -69,7 +69,7 @@ class Rectangle(Base):
         Args:
             value: The new x value.
         """
-        self.validate_or_non("x", value)
+        self.validate_or_non("x", value, eq=False)
         self.__x = value
 
     @property
@@ -84,15 +84,16 @@ class Rectangle(Base):
         Args:
             value: The new y value.
         """
-        self.validate_or_non("y", value)
+        self.validate_or_non("y", value, eq=False)
         self.__y = value
 
     def validate_or_non(self, attribute_name, value, eq=True):
-        """Validates if the value is an integer or psative or vegative"""
         if value is not None:
             if not isinstance(value, int):
                 raise TypeError(f"{attribute_name} must be an integer")
-            elif value <= 0:
+            elif eq and value <= 0:
                 raise ValueError(f"{attribute_name} must be > 0")
+            elif not eq and value < 0:
+                raise ValueError(f"{attribute_name} must be >= 0")
         elif attribute_name not in ["width", "height"]:
             raise ValueError(f"{attribute_name} must be >= 0")
