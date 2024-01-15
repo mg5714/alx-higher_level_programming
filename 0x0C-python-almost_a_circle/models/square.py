@@ -25,28 +25,3 @@ class Square(Rectangle):
         """setter size of square"""
         self.width = value
         self.height = value
-
-    def updateed(self, id=None, size=None, x=None, y=None):
-        """update attributes"""
-        if id is not None:
-            self.id = id
-        if size is not None:
-            self.size = size
-        if height is not None:
-            self.height = height
-        if x is not None:
-            self.x = x
-        if y is not None:
-            self.y = y
-
-    def update(self, *args, **kwargs):
-        """Updates attributes of the square"""
-        if args:
-            self.updateed(*args)
-        elif kwargs:
-            self.updateed(**kwargs)
-
-    def to_dictionary(self):
-        """returns dictionary representation of Rectangle"""
-        return {"id": self.id, "size": self.width,
-                "x": self.x, "y": self.y}
