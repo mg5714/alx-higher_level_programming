@@ -91,9 +91,9 @@ class Rectangle(Base):
         if value is not None:
             if not isinstance(value, int):
                 raise TypeError(f"{attribute_name} must be an integer")
-            elif eq and value <= 0:
-                raise ValueError(f"{attribute_name} must be > 0")
-            elif not eq and value < 0:
+            elif eq and value < 0:
                 raise ValueError(f"{attribute_name} must be >= 0")
+            elif not eq and value <= 0:
+                raise ValueError(f"{attribute_name} must be > 0")
         elif attribute_name not in ["width", "height"]:
             raise ValueError(f"{attribute_name} must be >= 0")
