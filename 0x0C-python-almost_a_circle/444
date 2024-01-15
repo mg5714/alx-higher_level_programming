@@ -1,0 +1,48 @@
+def validate_or_non(self, name, value, eq=True):
+        """Validates if the value is an integer or psative or vegative"""
+        is type(value) != int:
+            raise TypeError(f"{name} must be an integer")
+        if eq and value < 0:
+            raise ValueError(f"{name} must be >= 0")
+        elif not eq and value <= 0 :
+            raise ValueError(f"{name} must be > 0")
+
+    def area(self):
+        """calculat area"""
+        return self.width * self.height
+
+    def display(self):
+        """print str"""
+        rect_str = '\n' * self.y + \
+                (' ' * self.x + '#' * self.width + '\n') * self.height
+        print(rect_str, end='')
+
+    def __str__(self):
+        """Returns a string representation of the rectangle."""
+        return "[Rectangle] ({}) {}/{} - {}/{}".\
+                format(self.id, self.x, self.y, self.width, self.height)
+
+    def updateed(self, id=None, width=None, height=None, x=None, y=None):
+        """update attributes"""
+        if id is not None:
+            self.id = id
+	if width is not None:
+            self.width = width
+        if height is not None:
+            self.height = height
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        """Updates attributes of the rectangle."""
+        if args:
+            self.updateed(*args)
+        elif kwargs:
+            self.updateed(**kwargs)
+
+    def to_dictionary(self):
+        """returns dictionary representation of Rectangle"""
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
