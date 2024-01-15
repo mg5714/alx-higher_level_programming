@@ -41,7 +41,7 @@ class Base:
         """Returns list of instances from JSON string representation"""
         if not json_string:
             return []
-        return loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
