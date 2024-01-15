@@ -2,6 +2,7 @@
 """Module for square class"""
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """Represents a square, inherits from Rectangle."""
 
@@ -18,7 +19,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """Returns a string representation of the square."""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(
+                self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
