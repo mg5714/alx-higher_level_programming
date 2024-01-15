@@ -34,7 +34,7 @@ class Rectangle(Base):
         Args:
             value: The new width value.
         """
-        self.validate_integer("width", value, False)
+        self.validate_or_non("width", value, False)
         self.__width = value
 
     @property
@@ -49,7 +49,7 @@ class Rectangle(Base):
         Args:
             value: The new height value.
         """
-        self.validate_integer("height", value, False)
+        self.validate_or_non("height", value, False)
         self.__height = value
 
     @property
@@ -64,7 +64,7 @@ class Rectangle(Base):
         Args:
             value: The new x value.
         """
-        self.validate_integer("x", value)
+        self.validate_or_non("x", value)
         self.__x = value
 
     @property
@@ -79,10 +79,10 @@ class Rectangle(Base):
         Args:
             value: The new y value.
         """
-        self.validate_integer("y", value)
+        self.validate_or_non("y", value)
         self.__y = value
 
-    def validate_integer(self, name, value, eq=True):
+    def validate_or_non(self, name, value, eq=True):
         '''Method for validating the value.'''
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
