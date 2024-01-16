@@ -74,15 +74,16 @@ class Base:
         from models.rectangle import Rectangle
         from models.square import Square
         filename = f"{cls.__name__}.csv"
-        try:
-            list_objs = [obj.to_csv_row() for obj in list_objs]
+        if list_objs is not None:
+            if cls is Rectangle:
+                list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
+                        for obj in list_objs]
+            else:
+                list_objs = [[obj.id, obj.size, obj.x, obj.y]
+                        for obj in list_objs]
             with open(filename, "w", newline="", encoding='utf-8') as file:
                 writer = csv.writer(file)
-                header = ["id", "width", "height", "x", "y"] if cls.__name__ == "Rectangle" else ["id", "size", "x", "y"]
-                writer.writerow(header)
                 writer.writerows(list_objs)
-        except FileNotFoundError:
-            print(f"Error: Could not create file {filename}")
 
     @classmethod
     def load_from_file_csv(cls):
@@ -91,11 +92,8 @@ class Base:
         from models.square import Square
         filename = f"{cls.__name__}.csv"
         instances = []
-        try:
             with open(filename, "r", encoding='utf-8') as file:
                 reader = csv.reader(file)
                 for row in reader:
                     instances.append(cls.from_csv_row(row))
-        except FileNotFoundError:
-            pass
-        return instances
+            return instances
