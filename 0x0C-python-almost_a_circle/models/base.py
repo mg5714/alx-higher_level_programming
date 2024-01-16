@@ -71,8 +71,6 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Saves list of instances to CSV file"""
-        from models.rectangle import Rectangle
-        from models.square import Square
         filename = f"{cls.__name__}.csv"
         if list_objs is not None:
             if cls is Rectangle:
@@ -88,8 +86,6 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """Loads a list of instances from a CSV file"""
-        from models.rectangle import Rectangle
-        from models.square import Square
         filename = f"{cls.__name__}.csv"
         instances = []
             with open(filename, "r", encoding='utf-8') as file:
