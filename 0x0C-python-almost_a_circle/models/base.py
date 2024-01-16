@@ -74,7 +74,7 @@ class Base:
         filename = f"{cls.__name__}.csv"
         try:
             data = [obj.to_csv_row() for obj in list_objs]
-            with open(filename, "w", newline="") as file:
+            with open(filename, "w", newline="", encoding='utf-8') as file:
                 writer = csv.writer(file)
                 writer.writerows(["id", "width", "height", "x", "y"])
                 writer.writerows(["id", "size", "x", "y"])
@@ -88,7 +88,7 @@ class Base:
         filename = f"{cls.__name__}.csv"
         instances = []
         try:
-            with open(filename, "r") as file:
+            with open(filename, "r", encoding='utf-8') as file:
                 reader = csv.reader(file)
                 headers = next(reader)
                 for row in reader:
