@@ -71,6 +71,8 @@ class Base:
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Saves list of instances to CSV file"""
+        from models.rectangle import Rectangle
+        from models.square import Square
         filename = f"{cls.__name__}.csv"
         try:
             list_objs = [obj.to_csv_row() for obj in list_objs]
