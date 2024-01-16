@@ -90,7 +90,6 @@ class Base:
         try:
             with open(filename, "r", encoding='utf-8') as file:
                 reader = csv.reader(file)
-                headers = next(reader)
                 for row in reader:
                     instances.append(cls.from_csv_row(row))
         except FileNotFoundError:
