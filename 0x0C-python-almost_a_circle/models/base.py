@@ -72,24 +72,20 @@ class Base:
     def save_to_file_csv(cls, list_objs):
         """Saves list of instances to CSV file"""
         filename = f"{cls.__name__}.csv"
-        if list_objs is not None:
-            if cls is Rectangle:
-                list_objs = [[obj.id, obj.width, obj.height, obj.x, obj.y]
-                        for obj in list_objs]
-            else:
-                list_objs = [[obj.id, obj.size, obj.x, obj.y]
-                        for obj in list_objs]
-            with open(filename, "w", newline="", encoding='utf-8') as file:
-                writer = csv.writer(file)
-                writer.writerows(list_objs)
+        data = [obj.to_csv_row() for obj in list_objs]
+
+        with open(filename, "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerows(data)
 
     @classmethod
     def load_from_file_csv(cls):
         """Loads a list of instances from a CSV file"""
         filename = f"{cls.__name__}.csv"
-        instances = []
-            with open(filename, "r", encoding='utf-8') as file:
+        try:
+            with open(filename, "r") as file:
                 reader = csv.reader(file)
-                for row in reader:
-                    instances.append(cls.from_csv_row(row))
-            return instances
+                data = [cls.create(**row) for row in reader]
+                return data
+        except FileNotFoundError:
+            return []
