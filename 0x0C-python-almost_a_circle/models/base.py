@@ -87,6 +87,8 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """Loads a list of instances from a CSV file"""
+        from models.rectangle import Rectangle
+        from models.square import Square
         filename = f"{cls.__name__}.csv"
         instances = []
         try:
