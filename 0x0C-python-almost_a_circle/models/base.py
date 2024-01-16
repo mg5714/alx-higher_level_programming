@@ -73,12 +73,12 @@ class Base:
         """Saves list of instances to CSV file"""
         filename = f"{cls.__name__}.csv"
         try:
-            data = [obj.to_csv_row() for obj in list_objs]
+            list_objs = [obj.to_csv_row() for obj in list_objs]
             with open(filename, "w", newline="", encoding='utf-8') as file:
                 writer = csv.writer(file)
                 header = ["id", "width", "height", "x", "y"] if cls.__name__ == "Rectangle" else ["id", "size", "x", "y"]
                 writer.writerow(header)
-                writer.writerows(data)
+                writer.writerows(list_objs)
         except FileNotFoundError:
             print(f"Error: Could not create file {filename}")
 
