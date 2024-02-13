@@ -1,7 +1,7 @@
 -- script displays top 3 of cities temperature during 7 and 8 ordered tem.
-SELECT city, MAX(temperature) AS max_temperature
-FROM temperature_data
+SELECT city, AVG(value) AS avg_temp
+FROM temperatures
 WHERE month IN ('July', 'August')
 GROUP BY city
-ORDER BY max_temperature DESC
-LIMIT 3;
+ORDER BY avg_temp
+DESC LIMIT 3;
