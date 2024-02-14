@@ -1,4 +1,3 @@
--- script lists all cities California can be found in database hbtn_0d_usa
 -- list all the cities of California from the hbtn_0d_usa database
 SELECT cities.id, cities.name
 FROM cities

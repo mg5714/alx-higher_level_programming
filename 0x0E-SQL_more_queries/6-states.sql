@@ -1,4 +1,3 @@
--- script that creates the database hbtn_0d_usa and the table states
 -- Create the database if it doesn't exist. and use it
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 USE hbtn_0d_usa;
