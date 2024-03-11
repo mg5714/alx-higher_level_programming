@@ -1,6 +1,5 @@
 #!/usr/bin/node
-// prints 3 lines: (like 1-multi_languages.js) but by
-
+//  script that prints x times “C is fun”
 
 const lang = 'C is fun';
 
