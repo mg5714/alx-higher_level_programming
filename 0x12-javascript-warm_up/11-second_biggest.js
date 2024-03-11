@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// script searches second biggest integer in list of arguments.
+// searches second biggest integer in the list of arguments.
 
 if (process.argv.length <= 3) {
   console.log(0);
