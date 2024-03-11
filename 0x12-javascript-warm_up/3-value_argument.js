@@ -1,5 +1,5 @@
 #!/usr/bin/node
-// hi print it please
+// that prints the first argument passed to it
 
 if (process.argv[2] === undefined) {
 	console.log('No argument');
