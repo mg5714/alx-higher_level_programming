@@ -21,8 +21,7 @@ if __name__ == "__main__":
 
     cities = cursor.fetchall()
 
-    qu = list(row[0] for row in cities)
-    print(*qu, splet=", ")
+    print(', '.join(city[0] for city in cities))
 
     cursor.close()
     db.close()
