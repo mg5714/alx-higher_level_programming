@@ -8,12 +8,14 @@ if __name__ == "__main__":
     user = sys.argv[1]
     passwd = sys.argv[2]
     db_name = sys.argv[3]
-    state_name = sys.argv[4]
+    sn = sys.argv[4]
 
-    db = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=db_name)
+    db = MySQLdb.connect(
+            host=host, port=port, user=user, passwd=passwd, db=db_name)
     cursor = db.cursor()
 
-    cursor.execute("SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id", (state_name,))
+    cursor.execute("""SELECT cities.name FROM cities JOIN states ON
+            cities.state_id = states.id WHERE states.name = %s""", (sn,))
 
     cities = cursor.fetchall()
 
