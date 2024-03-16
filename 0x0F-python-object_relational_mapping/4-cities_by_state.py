@@ -14,7 +14,8 @@ if __name__ == "__main__":
     db_name = sys.argv[3]
 
     try:
-        db = MySQLdb.connect(host=host, port=port, user=user, passwd=passwd, db=db_name)
+        db = MySQLdb.connect(
+                host=host, port=port, user=user, passwd=passwd, db=db_name)
         cursor = db.cursor()
 
         cursor.execute("SELECT * FROM cities ORDER BY id ASC")
