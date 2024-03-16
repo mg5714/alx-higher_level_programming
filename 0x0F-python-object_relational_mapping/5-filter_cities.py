@@ -21,8 +21,7 @@ if __name__ == "__main__":
 
     cities = cursor.fetchall()
 
-    temp = list(city[0] for city in cities)
-    print(*temp, qu=", ")
+    print(', '.join(city[0] for city in cities))
 
     cursor.close()
     db.close()
