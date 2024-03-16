@@ -19,10 +19,8 @@ if __name__ == "__main__":
 
     cities = cursor.fetchall()
 
-    lt = []
-    for city in cities:
-        lt.append(city[1])
-    print(", ".join(lt))
+    qu = list(row[0] for row in cities)
+    print(*qu, splet=", ")
 
     cursor.close()
     db.close()
