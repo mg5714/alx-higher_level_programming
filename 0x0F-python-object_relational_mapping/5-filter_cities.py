@@ -17,11 +17,12 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     cursor.execute("""SELECT cities.name FROM cities INNER JOIN states ON
-            cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id""", (sn,))
+            cities.state_id = states.id WHERE states.name = %s""", (sn,))
 
     cities = cursor.fetchall()
 
-    print(', '.join(city[0] for city in cities))
+    temp = list(city[0] for city in cities)
+    print(*temp, qu=", ")
 
     cursor.close()
     db.close()
