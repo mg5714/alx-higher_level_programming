@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all State objects contain letter a from database hbtn_0e_6_usa"""
+"""prints State object with name passed as argument from hbtn_0e_6_usa"""
 
 import sys
 from model_state import Base, State
@@ -11,6 +11,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]
+    state_name = sys.argv[4]
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'
         .format(username, password, db_name),
@@ -19,11 +20,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
+    state = session.query(State).filter(State.name == state_name).first()
 
-    states_with_a = session.query(State)\
-                    .filter(State.name.like('%a%'))\
-                    .order_by(State.id)\
-                    .all()
-
-    for state in states_with_a:
-        print("{}: {}".format(state.id, state.name))
+    if state:
+        print(state.id)
+    else:
+        print("Not found")
