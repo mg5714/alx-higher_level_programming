@@ -7,16 +7,16 @@ if __name__ == "__main__":
         print("Usage: {} <username> <password> <database> <state>".format(sys.argv[0]))
         sys.exit(1)
 
-    user = sys.argv[1]
-    passwd = sys.argv[2]
-    db_name = sys.argv[3]
-    state = sys.argv[4]
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=argv[2], db=argv[3])
 
-    db = MySQLdb.connect(host="localhost", port=3306, user=user, passwd=passwd, db=db_name)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states WHERE name=%s ORDER BY id ASC", (state,))
+
+    cur.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC", [argv[4]])
+
     rows = cur.fetchall()
+
     for row in rows:
         print(row)
+
     cur.close()
     db.close()
