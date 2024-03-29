@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""POST request to a given URL with a given email
+"""
 import requests
 import sys
 
